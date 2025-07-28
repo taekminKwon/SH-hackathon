@@ -1,0 +1,29 @@
+---
+name: Refactor Request
+about: 리팩토링 요청
+title: ''
+labels: ''
+assignees: ''
+
+---
+
+---
+name: Refactor Code
+about: 코드 구조 개선 또는 리팩토링이 필요한 사항입니다
+title: "[Refactor] "
+labels: refactor
+assignees: ''
+
+---
+
+### 🔧 리팩토링 대상
+어떤 부분의 리팩토링이 필요한가요? (파일/모듈 등)
+
+### 🙋‍♂️ 현재 문제점
+현재 구조/로직의 어떤 점이 비효율적인가요?
+
+### ✅ 개선 방향
+어떤 방향으로 리팩토링할 수 있을까요?
+
+### 📎 기타 사항
+추가로 논의하고 싶은 내용이 있다면 작성해주세요.

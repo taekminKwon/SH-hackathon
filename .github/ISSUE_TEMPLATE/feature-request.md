@@ -1,6 +1,6 @@
 ---
 name: Feature request
-about: 기능 추가
+about: 기능 제안
 title: ''
 labels: ''
 assignees: ''
