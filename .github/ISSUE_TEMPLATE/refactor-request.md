@@ -7,15 +7,6 @@ assignees: ''
 
 ---
 
----
-name: Refactor Code
-about: 코드 구조 개선 또는 리팩토링이 필요한 사항입니다
-title: "[Refactor] "
-labels: refactor
-assignees: ''
-
----
-
 ### 🔧 리팩토링 대상
 어떤 부분의 리팩토링이 필요한가요? (파일/모듈 등)
 
