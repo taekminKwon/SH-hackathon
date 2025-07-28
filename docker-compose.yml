@@ -1,8 +1,10 @@
 version: '3.8'
 
 services:
-  postgres:
+  db:
     image: postgres:15
+    container_name: postgres-db
+    restart: unless-stopped
     environment:
       POSTGRES_DB: ${POSTGRES_DB}
       POSTGRES_USER: ${POSTGRES_USER}
@@ -12,15 +14,17 @@ services:
     volumes:
       - ./db:/var/lib/postgresql/data
 
-  springboot-app:
-    build: ./hackathon
+  app:
+    build: ./server
+    container_name: springboot-app
+    restart: unless-stopped
     ports:
       - "${SERVER_PORT:-8443}:${SERVER_PORT:-8443}"
     depends_on:
-      - postgres
+      - db
     environment:
       SPRING_DATASOURCE_URL: ${SPRING_DATASOURCE_URL}
       SPRING_DATASOURCE_USERNAME: ${SPRING_DATASOURCE_USERNAME}
       SPRING_DATASOURCE_PASSWORD: ${SPRING_DATASOURCE_PASSWORD}
     env_file:
-        - ./hackathon/.env
+      - ./server/.env
