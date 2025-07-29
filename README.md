@@ -71,7 +71,7 @@ docker-compose up --build -d
 브라우저에서 아래 주소로 접속하여 서버가 정상적으로 작동하는지 확인합니다:
 
 ```
-http://localhost:8080
+http://localhost:8443
 ```
 
 ✅ 메인 페이지나 API 응답이 잘 뜬다면 성공입니다!
