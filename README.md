@@ -1,77 +1,116 @@
+# 🧠 SH-Hackathon Server
+
+Spring Boot와 Django가 함께 구성된 백엔드 프로젝트입니다.  
+Docker Compose를 통해 PostgreSQL과 함께 통합 실행할 수 있도록 구성되어 있습니다.
+
+---
+
+## 📁 프로젝트 구조
+
+```
+hack/
+├── .env                      # 환경 변수 설정 파일
+├── docker-compose.yml        # 서비스 통합 실행 스크립트
+├── server/                   # Spring Boot 프로젝트
+│   ├── Dockerfile            # 멀티 스테이지 빌드 설정
+│   └── ...                  
+├── django-app/               # Django 프로젝트
+│   ├── Dockerfile            # Django용 Dockerfile
+│   └── manage.py 등          
+├── db/                       # PostgreSQL 데이터 디렉토리 (Git 추적 제외)
+└── README.md
+```
+
+---
+
+## ⚙️ 사용 기술 스택
+
+- **Java 17**, **Spring Boot 3**
+
+- **Python 3.11**, **Django 4**
+
+- **PostgreSQL 15**
+
+- **Docker & Docker Compose**
+
+- Gradle, psycopg2, JPA, REST API, etc.
+
+---
+
 ## 🛠️ 서버 실행 방법
 
-아래 순서를 따라하면 로컬에서 서버를 실행할 수 있습니다.  
+아래 명령어 한 줄로 모든 서비스가 실행됩니다.  
 (사전 조건: **Docker** 및 **Docker Compose**가 설치되어 있어야 합니다.)
 
----
-
-### 1️⃣ `server` 디렉토리로 이동
-
 ```bash
-cd server
+docker compose up --build
 ```
 
-> 백엔드 프로젝트가 위치한 `server` 폴더로 이동합니다.
-
----
-
-### 2️⃣ Spring Boot 애플리케이션 빌드
-
-```bash
-./gradlew bootjar
-```
-
-> `bootjar` 명령어를 실행하여 실행 가능한 `.jar` 파일을 생성합니다.  
-> 해당 파일은 `build/libs` 경로에 생성됩니다.
-
-💡 만약 권한 문제가 발생한다면 아래 명령어로 실행 권한을 부여해 주세요:
-
-```bash
-chmod +x ./gradlew
-```
-
----
-
-### 3️⃣ Docker 이미지 빌드
-
-```bash
-docker build -t my-app:latest .
-```
-
-> 현재 디렉토리(`server`)에 있는 `Dockerfile`을 기반으로 Docker 이미지를 빌드합니다.  
-> 이미지 이름은 `my-app:latest`입니다.
-
----
-
-### 4️⃣ 상위 디렉토리(`hackathon`)로 이동
-
-```bash
-cd ..
-```
-
-> `docker-compose.yml` 파일이 위치한 디렉토리로 이동합니다.
-
----
-
-### 5️⃣ Docker Compose로 컨테이너 실행
-
-```bash
-docker-compose up --build -d
-```
-
-> 여러 컨테이너를 동시에 실행합니다.
+> 루트 디렉토리(`docker-compose.yml`이 위치한 곳)에서 실행합니다.  
+> 아래 3개의 서비스가 자동으로 실행됩니다:
 > 
-> - `--build`: 이미지가 없거나 변경 사항이 있을 경우 재빌드합니다.
-> - `-d`: 백그라운드 모드로 실행합니다.
+> - PostgreSQL (DB)
+> 
+> - Spring Boot (백엔드 API)
+> 
+> - Django (예: 관리자 서비스)
 
 ---
 
-### 6️⃣ 서버 실행 확인
+### ✅ 실행 확인
 
-브라우저에서 아래 주소로 접속하여 서버가 정상적으로 작동하는지 확인합니다:
+| 서비스         | 주소                                              |
+| ----------- | ----------------------------------------------- |
+| Spring Boot | [http://localhost:8443](http://localhost:8443/) |
+| Django      | [http://localhost:8000](http://localhost:8000/) |
+| PostgreSQL  | 내부 컨테이너 `db:5432` 통해 접근                         |
 
+> 로그에 `Started Application`, `Starting development server at...` 문구가 출력되면 성공입니다.
+
+---
+
+### 🛑 서버 종료
+
+```bash
+docker compose down
 ```
-http://localhost:8443
+
+> 모든 컨테이너를 종료합니다.  
+> 볼륨까지 삭제하려면:
+
+```bash
+docker compose down -v
 ```
 
-✅ 메인 페이지나 API 응답이 잘 뜬다면 성공입니다!
+---
+
+## 📄 환경 변수 예시 (.env)
+
+```env
+# PostgreSQL
+POSTGRES_DB=mydb
+POSTGRES_USER=myuser
+POSTGRES_PASSWORD=mypassword
+
+# Spring Boot
+SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/mydb
+SPRING_DATASOURCE_USERNAME=myuser
+SPRING_DATASOURCE_PASSWORD=mypassword
+SPRING_BOOT_PORT=8443
+
+# Django
+DJANGO_PORT=8000
+DJANGO_DB_PORT=5432
+```
+
+---
+
+## 🙌 푸시 방법
+
+1. 브랜치 생성: `git checkout -b feat/기능명`
+
+2. 작업 후 커밋: `git commit -m "feat: 작업 내용 설명"`
+
+3. 원격 푸시: `git push origin feat/기능명`
+
+4. GitHub에서 Pull Request 생성
