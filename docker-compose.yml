@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   db:
     image: postgres:15
@@ -10,7 +8,7 @@ services:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     ports:
-      - "5432:5432"
+      - "${PSQL_PORT}:${PSQL_PORT}"
     volumes:
       - ./db:/var/lib/postgresql/data
 
@@ -19,7 +17,7 @@ services:
     container_name: springboot-app
     restart: unless-stopped
     ports:
-      - "${SERVER_PORT:-8443}:${SERVER_PORT:-8443}"
+      - "${SPRING_BOOT_PORT}:${SPRING_BOOT_PORT}"
     depends_on:
       - db
     environment:
@@ -27,4 +25,27 @@ services:
       SPRING_DATASOURCE_USERNAME: ${SPRING_DATASOURCE_USERNAME}
       SPRING_DATASOURCE_PASSWORD: ${SPRING_DATASOURCE_PASSWORD}
     env_file:
-      - ./server/.env
+      - ./.env
+
+  django:
+    build: ./django-app
+    container_name: django-app
+    restart: unless-stopped
+    ports:
+      - "${DJANGO_PORT}:${DJANGO_PORT}"
+    depends_on:
+      - db
+    environment:
+      DJANGO_SETTINGS_MODULE: core.settings
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_HOST: db
+      DJANGO_PORT: ${DJANGO_PORT}
+    volumes:
+      - ./django-app:/app
+    command: >
+      sh -c "python manage.py migrate &&
+             python manage.py runserver 0.0.0.0:${DJANGO_PORT}"
+    env_file:
+      - .env
