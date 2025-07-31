@@ -1,5 +1,5 @@
-```markdown
-# 🧠 SH-Hackathon Server
+
+## 🧠 SH-Hackathon Server
 
 Spring Boot, Django, PostgreSQL을 통합한 백엔드 프로젝트입니다.  
 Nginx를 리버스 프록시로 구성하여 `/api`는 Spring Boot, `/django`는 Django, `/`는 Flutter 정적 화면을 제공하도록 설계되었습니다.
