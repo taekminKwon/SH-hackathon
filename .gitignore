@@ -36,6 +36,19 @@ out/
 ## VS Code
 .vscode/
 
+# Python 가상환경 무시
+venv/
+**/venv/
+
+# Python 컴파일 파일 무시
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Django 마이그레이션 캐시
+**/migrations/__pycache__/
+**/migrations/*.pyc
+
 # =============================
 # ⚙️ Environment & Config
 # =============================

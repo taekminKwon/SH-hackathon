@@ -1,5 +1,4 @@
-```markdown
-# 🧠 SH-Hackathon Server
+## 🧠 SH-Hackathon Server
 
 Spring Boot, Django, PostgreSQL을 통합한 백엔드 프로젝트입니다.  
 Nginx를 리버스 프록시로 구성하여 `/api`는 Spring Boot, `/django`는 Django, `/`는 Flutter 정적 화면을 제공하도록 설계되었습니다.
@@ -7,8 +6,8 @@ Nginx를 리버스 프록시로 구성하여 `/api`는 Spring Boot, `/django`는
 ---
 
 ## 📁 프로젝트 구조
-```
 
+```
 hack/  
 ├── .env # 환경 변수 설정 파일  
 ├── docker-compose.yml # 통합 실행 스크립트  
@@ -20,11 +19,12 @@ hack/
 │ └── ...  
 ├── django-app/ # Django 프로젝트  
 │ ├── Dockerfile  
-│ └── manage.py 등  
+│ ├── manage.py 등  
+│ └── venv/ (로컬 전용, Git 제외 대상) 
 ├── db/ # PostgreSQL 데이터 디렉토리 (Git 추적 제외)  
 └── README.md
-
 ```
+
 ---
 
 ## ⚙️ 사용 기술 스택
@@ -79,18 +79,10 @@ docker compose up --build
 ---
 
 ### 🛑 서버 종료
-
+> 모든 컨테이너를 종료합니다.
 ```bash
 docker compose down
 ```
-
-> 모든 컨테이너를 종료합니다.
-
-```bash
-docker compose down -v
-```
-
-> 데이터 볼륨까지 삭제할 경우 사용
 
 ---
 
@@ -119,6 +111,41 @@ NGINX_PORT=80
 
 ---
 
+## 🐍 Django 로컬 개발 가이드
+
+> Docker 없이 로컬에서 Django만 실행하려는 경우 아래를 따르세요.
+
+1. Python 가상환경 생성 및 패키지 설치
+
+```bash
+# 1. 가상환경 생성 (django-app 디렉토리에서)
+cd django-app
+python -m venv venv
+
+# 2. 가상환경 활성화
+# macOS / Linux
+source venv/bin/activate
+
+# Windows
+.\venv\Scripts\activate
+
+# 3. 패키지 설치
+pip install -r requirements.txt
+```
+
+requirements.txt가 없다면 다음 명령어로 생성합니다:
+
+> ```bash
+> pip freeze > requirements.txt
+> ```
+
+2. 서버 실행
+```bash
+python manage.py runserver
+```
+
+---
+
 ## 🙌 Git 작업 흐름
 
 ```bash
@@ -126,7 +153,8 @@ NGINX_PORT=80
 git checkout -b chore/nginx
 
 # 2. 작업 후 커밋
-git commit -m "chore: nginx 설정 리팩토링"
+# <브랜치 유형>/<이니셜>-<내용> 
+git commit -m "chore:pjh-nginx 설정 리팩토링"
 
 # 3. 원격 브랜치 푸시
 git push origin chore/nginx
