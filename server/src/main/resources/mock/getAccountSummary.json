@@ -14,7 +14,7 @@
     {
       "bankCode": "001",
       "bankName": "한국은행",
-      "username": "홍길동",
+      "userName": "홍길동",
       "accountNo": "0016174648358792",
       "accountName": "한국은행수시입출금상품명",
       "accountTypeCode": "1",
