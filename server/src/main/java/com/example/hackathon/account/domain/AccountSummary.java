@@ -1,5 +1,6 @@
 package com.example.hackathon.account.domain;
 
+import com.example.hackathon.account.domain.shResponse.SHAccountREC;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,11 +27,11 @@ public class AccountSummary {
         }
 
         public static AccountSummary of(SHAccountREC shAccountREC) {
-                AccountSummary accountSummary = new AccountSummary();
-                accountSummary.bankName = shAccountREC.getBankName();
-                accountSummary.accountNo = shAccountREC.getAccountNo();
-                accountSummary.username = shAccountREC.getUserName();
-                accountSummary.accountTypeName = shAccountREC.getAccountTypeName();
-                return accountSummary;
+                return AccountSummary.builder()
+                        .bankName(shAccountREC.getBankName())
+                        .accountNo(shAccountREC.getAccountNo())
+                        .username(shAccountREC.getUserName())
+                        .accountTypeName(shAccountREC.getAccountTypeName())
+                        .build();
         }
 }
