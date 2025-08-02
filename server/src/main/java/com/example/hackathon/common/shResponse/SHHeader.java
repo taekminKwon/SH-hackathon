@@ -4,8 +4,6 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.ToString;
 import lombok.extern.slf4j.Slf4j;
-
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -48,7 +46,7 @@ public class SHHeader {
             this.userKey = userKey;
         }
 
-        public Request makeRequest(
+        public static Request makeRequest(
                 String apiName,
                 String institutionTransactionUniqueNo,
                 String userKey
