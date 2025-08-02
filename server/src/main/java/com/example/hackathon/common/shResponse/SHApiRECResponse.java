@@ -5,16 +5,18 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Getter
 @NoArgsConstructor
-public class SHApiResponse<T> {
+public class SHApiRECResponse<T> {
     @JsonProperty("Header")
     private SHHeader.Response header;
     @JsonProperty("REC")
-    private T responseBody;
+    private List<T> responseBody;
 
     @Builder
-    public SHApiResponse (SHHeader.Response header, T responseBody) {
+    public SHApiRECResponse(SHHeader.Response header, List<T> responseBody) {
         this.header = header;
         this.responseBody = responseBody;
     }
