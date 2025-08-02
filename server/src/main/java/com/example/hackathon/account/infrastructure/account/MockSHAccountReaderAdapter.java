@@ -1,5 +1,6 @@
 package com.example.hackathon.account.infrastructure.account;
 
+import com.example.hackathon.account.domain.AccountSummary;
 import com.example.hackathon.common.shResponse.SHApiRECResponse;
 import com.example.hackathon.common.mock.MockApiLoader;
 import com.example.hackathon.account.domain.AccountReaderPort;
@@ -14,7 +15,12 @@ import org.springframework.stereotype.Component;
 public class MockSHAccountReaderAdapter implements AccountReaderPort {
     private final MockApiLoader mockApiLoader;
     @Override
-    public SHApiRECResponse<SHAccountREC> getAccountSummary(AccountSummaryCriteria criteria) {
-        return mockApiLoader.loadMockResponse("getAccountSummary", new TypeReference<SHApiRECResponse<SHAccountREC>>() {});
+    public AccountSummary getAccountSummary(AccountSummaryCriteria criteria) {
+        SHApiRECResponse<SHAccountREC> getAccountSummary = mockApiLoader.loadMockResponse("getAccountSummary", new TypeReference<SHApiRECResponse<SHAccountREC>>() {});
+        return getAccountSummary.getResponseBody().stream()
+                .filter(x -> x.getAccountNo().equals(criteria.getAccountNo()))
+                .map(AccountSummary::of)
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException("해당 계좌를 찾을 수 없습니다."));
     }
 }
