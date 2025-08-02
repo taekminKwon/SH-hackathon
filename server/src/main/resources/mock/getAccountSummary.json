@@ -1,0 +1,31 @@
+{
+  "header": {
+    "responseCode": "H0000",
+    "responseMessage": "정상처리 되었습니다.",
+    "apiName": "inquireAccountSummary",
+    "transmissionDate": "20240802",
+    "transmissionTime": "150501",
+    "institutionCode": "00100",
+    "fintechAppNo": "001",
+    "apiServiceCode": "inquireAccountSummary",
+    "institutionTransactionUniqueNo": "20240802150501000000000001"
+  },
+  "responseBody": [
+    {
+      "bankCode": "001",
+      "bankName": "한국은행",
+      "username": "홍길동",
+      "accountNo": "0016174648358792",
+      "accountName": "한국은행수시입출금상품명",
+      "accountTypeCode": "1",
+      "accountTypeName": "수시입출금",
+      "accountCreatedDate": "20240401",
+      "accountExpiryDate": "20290401",
+      "dailyTransferLimit": 100000000,
+      "oneTimeTransferLimit": 20000000,
+      "accountBalance": 500000,
+      "lastTransactionDate": "20240801",
+      "currency": "KRW"
+    }
+  ]
+}
