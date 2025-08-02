@@ -1,5 +1,5 @@
 {
-  "header": {
+  "Header": {
     "responseCode": "H0000",
     "responseMessage": "정상처리 되었습니다.",
     "apiName": "inquireAccountSummary",
@@ -10,7 +10,7 @@
     "apiServiceCode": "inquireAccountSummary",
     "institutionTransactionUniqueNo": "20240802150501000000000001"
   },
-  "responseBody": [
+  "REC": [
     {
       "bankCode": "001",
       "bankName": "한국은행",
