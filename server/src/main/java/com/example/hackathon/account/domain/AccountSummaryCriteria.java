@@ -1,4 +1,4 @@
-package com.example.hackathon.domain.account;
+package com.example.hackathon.account.domain;
 
 import lombok.Builder;
 import lombok.Getter;
