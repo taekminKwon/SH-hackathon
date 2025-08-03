@@ -1,0 +1,260 @@
+{
+  "Header": {
+    "responseCode": "00000000",
+    "responseMessage": "정상 처리되었습니다.",
+    "apiName": "inquireTransactionHistory",
+    "transmissionDate": "20240801",
+    "transmissionTime": "143000",
+    "institutionCode": "00100",
+    "fintechAppNo": "001",
+    "apiServiceCode": "inquireTransactionHistory",
+    "institutionTransactionUniqueNo": "20240801143000123456"
+  },
+  "REC": [
+    {
+      "totalCount": "20",
+      "list": [
+        {
+          "transactionUniqueNo": 100000000001,
+          "transactionDate": "20240801",
+          "transactionTime": "000000",
+          "transactionType": "2",
+          "transactionTypeName": "출금",
+          "transactionAccountNo": "0016174648358792",
+          "transactionBalance": 106629,
+          "transactionAfterBalance": 1393371,
+          "transactionSummary": "출금 요약 1",
+          "transactionMemo": "1"
+        },
+        {
+          "transactionUniqueNo": 100000000002,
+          "transactionDate": "20240802",
+          "transactionTime": "000000",
+          "transactionType": "2",
+          "transactionTypeName": "출금",
+          "transactionAccountNo": "0016174648358792",
+          "transactionBalance": 233253,
+          "transactionAfterBalance": 1033494,
+          "transactionSummary": "출금 요약 2",
+          "transactionMemo": "2"
+        },
+        {
+          "transactionUniqueNo": 100000000003,
+          "transactionDate": "20240803",
+          "transactionTime": "000000",
+          "transactionType": "1",
+          "transactionTypeName": "입금",
+          "transactionAccountNo": "0016174648358792",
+          "transactionBalance": 68050,
+          "transactionAfterBalance": 1704150,
+          "transactionSummary": "입금 요약 3",
+          "transactionMemo": "1"
+        },
+        {
+          "transactionUniqueNo": 100000000004,
+          "transactionDate": "20240804",
+          "transactionTime": "000000",
+          "transactionType": "2",
+          "transactionTypeName": "출금",
+          "transactionAccountNo": "0016174648358792",
+          "transactionBalance": 258439,
+          "transactionAfterBalance": 466244,
+          "transactionSummary": "출금 요약 4",
+          "transactionMemo": "2"
+        },
+        {
+          "transactionUniqueNo": 100000000005,
+          "transactionDate": "20240805",
+          "transactionTime": "000000",
+          "transactionType": "2",
+          "transactionTypeName": "출금",
+          "transactionAccountNo": "0016174648358792",
+          "transactionBalance": 345072,
+          "transactionAfterBalance": -225360,
+          "transactionSummary": "출금 요약 5",
+          "transactionMemo": "3"
+        },
+        {
+          "transactionUniqueNo": 100000000006,
+          "transactionDate": "20240806",
+          "transactionTime": "000000",
+          "transactionType": "1",
+          "transactionTypeName": "입금",
+          "transactionAccountNo": "0016174648358792",
+          "transactionBalance": 199959,
+          "transactionAfterBalance": 2699754,
+          "transactionSummary": "입금 요약 6",
+          "transactionMemo": "1"
+        },
+        {
+          "transactionUniqueNo": 100000000007,
+          "transactionDate": "20240807",
+          "transactionTime": "000000",
+          "transactionType": "1",
+          "transactionTypeName": "입금",
+          "transactionAccountNo": "0016174648358792",
+          "transactionBalance": 221318,
+          "transactionAfterBalance": 3049226,
+          "transactionSummary": "입금 요약 7",
+          "transactionMemo": "1"
+        },
+        {
+          "transactionUniqueNo": 100000000008,
+          "transactionDate": "20240808",
+          "transactionTime": "000000",
+          "transactionType": "2",
+          "transactionTypeName": "출금",
+          "transactionAccountNo": "0016174648358792",
+          "transactionBalance": 197132,
+          "transactionAfterBalance": -77056,
+          "transactionSummary": "출금 요약 8",
+          "transactionMemo": "2"
+        },
+        {
+          "transactionUniqueNo": 100000000009,
+          "transactionDate": "20240809",
+          "transactionTime": "000000",
+          "transactionType": "1",
+          "transactionTypeName": "입금",
+          "transactionAccountNo": "0016174648358792",
+          "transactionBalance": 311728,
+          "transactionAfterBalance": 4305552,
+          "transactionSummary": "입금 요약 9",
+          "transactionMemo": "2"
+        },
+        {
+          "transactionUniqueNo": 100000000010,
+          "transactionDate": "20240810",
+          "transactionTime": "000000",
+          "transactionType": "2",
+          "transactionTypeName": "출금",
+          "transactionAccountNo": "0016174648358792",
+          "transactionBalance": 331511,
+          "transactionAfterBalance": -1815110,
+          "transactionSummary": "출금 요약 10",
+          "transactionMemo": "3"
+        },
+        {
+          "transactionUniqueNo": 100000000011,
+          "transactionDate": "20240811",
+          "transactionTime": "000000",
+          "transactionType": "1",
+          "transactionTypeName": "입금",
+          "transactionAccountNo": "0016174648358792",
+          "transactionBalance": 235409,
+          "transactionAfterBalance": 4089499,
+          "transactionSummary": "입금 요약 11",
+          "transactionMemo": "3"
+        },
+        {
+          "transactionUniqueNo": 100000000012,
+          "transactionDate": "20240812",
+          "transactionTime": "000000",
+          "transactionType": "1",
+          "transactionTypeName": "입금",
+          "transactionAccountNo": "0016174648358792",
+          "transactionBalance": 427359,
+          "transactionAfterBalance": 6628308,
+          "transactionSummary": "입금 요약 12",
+          "transactionMemo": "2"
+        },
+        {
+          "transactionUniqueNo": 100000000013,
+          "transactionDate": "20240813",
+          "transactionTime": "000000",
+          "transactionType": "1",
+          "transactionTypeName": "입금",
+          "transactionAccountNo": "0016174648358792",
+          "transactionBalance": 391858,
+          "transactionAfterBalance": 6594154,
+          "transactionSummary": "입금 요약 13",
+          "transactionMemo": "2"
+        },
+        {
+          "transactionUniqueNo": 100000000014,
+          "transactionDate": "20240814",
+          "transactionTime": "000000",
+          "transactionType": "2",
+          "transactionTypeName": "출금",
+          "transactionAccountNo": "0016174648358792",
+          "transactionBalance": 382783,
+          "transactionAfterBalance": -3858962,
+          "transactionSummary": "출금 요약 14",
+          "transactionMemo": "4"
+        },
+        {
+          "transactionUniqueNo": 100000000015,
+          "transactionDate": "20240815",
+          "transactionTime": "000000",
+          "transactionType": "2",
+          "transactionTypeName": "출금",
+          "transactionAccountNo": "0016174648358792",
+          "transactionBalance": 130059,
+          "transactionAfterBalance": -450885,
+          "transactionSummary": "출금 요약 15",
+          "transactionMemo": "4"
+        },
+        {
+          "transactionUniqueNo": 100000000016,
+          "transactionDate": "20240816",
+          "transactionTime": "000000",
+          "transactionType": "2",
+          "transactionTypeName": "출금",
+          "transactionAccountNo": "0016174648358792",
+          "transactionBalance": 242135,
+          "transactionAfterBalance": -2374160,
+          "transactionSummary": "출금 요약 16",
+          "transactionMemo": "5"
+        },
+        {
+          "transactionUniqueNo": 100000000017,
+          "transactionDate": "20240817",
+          "transactionTime": "000000",
+          "transactionType": "1",
+          "transactionTypeName": "입금",
+          "transactionAccountNo": "0016174648358792",
+          "transactionBalance": 487403,
+          "transactionAfterBalance": 9785851,
+          "transactionSummary": "입금 요약 17",
+          "transactionMemo": "5"
+        },
+        {
+          "transactionUniqueNo": 100000000018,
+          "transactionDate": "20240818",
+          "transactionTime": "000000",
+          "transactionType": "2",
+          "transactionTypeName": "출금",
+          "transactionAccountNo": "0016174648358792",
+          "transactionBalance": 16852,
+          "transactionAfterBalance": 1196664,
+          "transactionSummary": "출금 요약 18",
+          "transactionMemo": "6"
+        },
+        {
+          "transactionUniqueNo": 100000000019,
+          "transactionDate": "20240819",
+          "transactionTime": "000000",
+          "transactionType": "1",
+          "transactionTypeName": "입금",
+          "transactionAccountNo": "0016174648358792",
+          "transactionBalance": 355398,
+          "transactionAfterBalance": 8252562,
+          "transactionSummary": "입금 요약 19",
+          "transactionMemo": "6"
+        },
+        {
+          "transactionUniqueNo": 100000000020,
+          "transactionDate": "20240820",
+          "transactionTime": "000000",
+          "transactionType": "2",
+          "transactionTypeName": "출금",
+          "transactionAccountNo": "0016174648358792",
+          "transactionBalance": 141358,
+          "transactionAfterBalance": -1327160,
+          "transactionSummary": "출금 요약 20",
+          "transactionMemo": "6"
+        }
+      ]
+    }
+  ]
+}
