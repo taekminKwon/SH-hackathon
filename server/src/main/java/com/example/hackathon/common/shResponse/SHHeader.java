@@ -1,16 +1,15 @@
 package com.example.hackathon.common.shResponse;
 
+import com.example.hackathon.common.TransactionUniqueNoGenerator;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.ToString;
-import lombok.extern.slf4j.Slf4j;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class SHHeader {
     private static final String API_KEY = "12345678";
     @Getter
-    @Slf4j
     @ToString
     public static class Request {
         private String apiName;
@@ -46,25 +45,21 @@ public class SHHeader {
             this.userKey = userKey;
         }
 
-        public static Request makeRequest(
+        public static Request makeHeader(
                 String apiName,
-                String institutionTransactionUniqueNo,
                 String userKey
         ) {
-            Request request = Request.builder()
+            return Request.builder()
                     .apiName(apiName)
                     .transmissionDate(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd")))
                     .transmissionTime(LocalDateTime.now().format(DateTimeFormatter.ofPattern("hhmmdd")))
                     .institutionCode("00100")
                     .fintechAppNo("001")
                     .apiServiceCode(apiName)
-                    .institutionTransactionUniqueNo(institutionTransactionUniqueNo)
+                    .institutionTransactionUniqueNo(TransactionUniqueNoGenerator.generateUniqueNo())
                     .apiKey(API_KEY)
                     .userKey(userKey)
                     .build();
-
-            log.info(request.toString());
-            return request;
         }
     }
 
