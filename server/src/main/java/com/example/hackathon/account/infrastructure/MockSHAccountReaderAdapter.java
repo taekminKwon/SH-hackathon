@@ -16,13 +16,8 @@ import java.util.List;
 public class MockSHAccountReaderAdapter implements AccountReaderPort {
     private final MockApiLoader mockApiLoader;
     @Override
-    public AccountSummary getAccountSummary(AccountSummaryCriteria criteria) {
-        SHApiRECResponse<SHAccountREC> getAccountSummary = mockApiLoader.loadMockResponse("getAccountSummary", new TypeReference<SHApiRECResponse<SHAccountREC>>() {});
-        return getAccountSummary.getResponseBody().stream()
-                .filter(x -> x.getAccountNo().equals(criteria.getAccountNo()))
-                .map(AccountSummary::of)
-                .findFirst()
-                .orElseThrow(() -> new IllegalArgumentException("해당 계좌를 찾을 수 없습니다."));
+    public SHApiRECResponse<SHAccountREC> getAccountSummary(AccountSummaryCriteria criteria) {
+        return  mockApiLoader.loadMockResponse("getAccountSummary", new TypeReference<SHApiRECResponse<SHAccountREC>>() {});
     }
 
     @Override
