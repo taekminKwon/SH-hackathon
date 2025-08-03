@@ -1,4 +1,4 @@
-package com.example.hackathon.common.shResponse;
+package com.example.hackathon.common.shDto;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
