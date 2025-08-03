@@ -52,7 +52,7 @@ public class SHHeader {
             return Request.builder()
                     .apiName(apiName)
                     .transmissionDate(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd")))
-                    .transmissionTime(LocalDateTime.now().format(DateTimeFormatter.ofPattern("hhmmdd")))
+                    .transmissionTime(LocalDateTime.now().format(DateTimeFormatter.ofPattern("HHmmdd")))
                     .institutionCode("00100")
                     .fintechAppNo("001")
                     .apiServiceCode(apiName)
