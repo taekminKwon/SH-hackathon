@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Component
-public class SHUserAccountStoreAdapter implements SHUserAccountStorePort {
+public class SHMockUserAccountStoreAdapter implements SHUserAccountStorePort {
 
     @Override
     public SHUserAccountInfo createUserAccount(SHUserAccountCommand command) {
