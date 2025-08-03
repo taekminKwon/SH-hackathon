@@ -1,0 +1,32 @@
+{
+  "Header": {
+    "responseCode": "H0000",
+    "responseMessage": "정상처리 되었습니다.",
+    "apiName": "updateDemandDepositAccountTransfer",
+    "transmissionDate": "20240401",
+    "transmissionTime": "103500",
+    "institutionCode": "00100",
+    "fintechAppNo": "001",
+    "apiKey": "6a028e66ddbf42a6b783d78963163e29",
+    "apiServiceCode": "updateDemandDepositAccountTransfer",
+    "institutionTransactionUniqueNo": "202402151212123453"
+  },
+  "REC": [
+    {
+      "transactionUniqueNo": "61",
+      "accountNo": "0016174648358792",
+      "transactionDate": "20240401",
+      "transactionType": "2",
+      "transactionTypeName": "출금(이체)",
+      "transactionAccountNo": "0204667768182760"
+    },
+    {
+      "transactionUniqueNo": "62",
+      "accountNo": "0204667768182760",
+      "transactionDate": "20240401",
+      "transactionType": "1",
+      "transactionTypeName": "입금(이체)",
+      "transactionAccountNo": "0016174648358792"
+    }
+  ]
+}
