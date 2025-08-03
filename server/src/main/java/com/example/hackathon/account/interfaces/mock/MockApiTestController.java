@@ -1,8 +1,9 @@
 package com.example.hackathon.account.interfaces.mock;
 
-import com.example.hackathon.account.domain.AccountSummary;
 import com.example.hackathon.account.domain.AccountReaderPort;
 import com.example.hackathon.account.domain.AccountSummaryCriteria;
+import com.example.hackathon.account.domain.shResponse.SHAccountREC;
+import com.example.hackathon.common.shResponse.SHApiRECResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class MockApiTestController {
     private final AccountReaderPort accountReaderPort;
     @GetMapping
-    public ResponseEntity<AccountSummary> testGetAccount(
+    public ResponseEntity<SHApiRECResponse<SHAccountREC>> testGetAccount(
             @RequestBody AccountSummaryCriteria criteria
     ) {
         return ResponseEntity
