@@ -5,7 +5,7 @@ import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
 @Getter
-public class SHUserAccountCommand {
+public class SHUserAccountCriteria {
     private String apiKey;
     private String userId;
 }
