@@ -2,7 +2,7 @@ package com.example.hackathon.account.domain;
 
 import com.example.hackathon.account.domain.shResponse.SHAccountREC;
 import com.example.hackathon.account.domain.shResponse.SHTransactionHistoryREC;
-import com.example.hackathon.common.shResponse.SHApiRECResponse;
+import com.example.hackathon.common.shDto.SHApiRECResponse;
 
 public interface AccountReaderPort {
     /**

@@ -5,7 +5,7 @@ import com.example.hackathon.account.domain.AccountReaderPort;
 import com.example.hackathon.account.domain.AccountSummaryCriteria;
 import com.example.hackathon.account.domain.shResponse.SHAccountREC;
 import com.example.hackathon.account.domain.shResponse.SHTransactionHistoryREC;
-import com.example.hackathon.common.shResponse.SHApiRECResponse;
+import com.example.hackathon.common.shDto.SHApiRECResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
