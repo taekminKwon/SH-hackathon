@@ -19,18 +19,16 @@ import java.util.concurrent.ConcurrentHashMap;
 @RequiredArgsConstructor
 public class SHMockPaymentAdapter implements SHPaymentPort {
     private static final Map<Long, SHPaymentInfo> db = new ConcurrentHashMap<>();
-    private static long id = 0;
+    private static long id = 1;
     @Override
     public SHApiRECResponse<SHPaymentInfo> storePayment(SHPaymentCommand command) {
         List<SHPaymentInfo> list = new ArrayList<>();
-        ++id;
         SHPaymentInfo withdrawal = createWithdrawal(command);
-        db.put(id, withdrawal);
-        ++id;
+        db.put(++id, withdrawal);
         SHPaymentInfo deposit = createDeposit(command);
+        db.put(++id, deposit);
         list.add(withdrawal);
         list.add(deposit);
-        db.put(++id, deposit);
         return SHApiRECResponse.of(SHHeader.Response
                 .builder()
                 .responseCode("H0000")
