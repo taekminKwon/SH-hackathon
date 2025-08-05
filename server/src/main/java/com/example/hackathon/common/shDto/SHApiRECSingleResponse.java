@@ -6,21 +6,21 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
-@Getter
 @NoArgsConstructor
-public class SHApiRECResponse<T> {
+@Getter
+public class SHApiRECSingleResponse<T> {
     @JsonProperty("Header")
     private SHHeader.Response header;
     @JsonProperty("REC")
-    private List<T> responseBody;
+    private T responseBody;
 
-    public SHApiRECResponse(SHHeader.Response header, List<T> responseBody) {
+    public SHApiRECSingleResponse(SHHeader.Response header, T responseBody) {
         this.header = header;
         this.responseBody = responseBody;
     }
 
-    public static <T> SHApiRECResponse<T> of(SHHeader.Response header, List<T> responseBody) {
-        SHApiRECResponse<T> response = new SHApiRECResponse<>();
+    public static <T> SHApiRECSingleResponse<T> of(SHHeader.Response header, T responseBody) {
+        SHApiRECSingleResponse<T> response = new SHApiRECSingleResponse<>();
         response.header = header;
         response.responseBody = responseBody;
         return response;
