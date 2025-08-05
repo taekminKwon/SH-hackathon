@@ -1,7 +1,7 @@
 package com.example.hackathon.account.interfaces.mock;
 
 import com.example.hackathon.account.domain.AccountHistoryCriteria;
-import com.example.hackathon.account.domain.AccountReaderPort;
+import com.example.hackathon.account.domain.SHAccountReaderPort;
 import com.example.hackathon.account.domain.AccountSummaryCriteria;
 import com.example.hackathon.account.domain.shResponse.SHAccountREC;
 import com.example.hackathon.account.domain.shResponse.SHTransactionHistoryREC;
@@ -18,14 +18,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 @RequestMapping("/test")
 public class MockApiTestController {
-    private final AccountReaderPort accountReaderPort;
+    private final SHAccountReaderPort SHAccountReaderPort;
     @GetMapping("/getAccount")
     public ResponseEntity<SHApiRECResponse<SHAccountREC>> testGetAccount(
             @RequestBody AccountSummaryCriteria criteria
     ) {
         return ResponseEntity
                 .status(HttpStatus.OK)
-                .body(accountReaderPort.getAccountSummary(criteria));
+                .body(SHAccountReaderPort.getAccountSummary(criteria));
     }
 
     @GetMapping("/getHistories")
@@ -34,6 +34,6 @@ public class MockApiTestController {
         ) {
         return ResponseEntity
                 .status(HttpStatus.OK)
-                .body(accountReaderPort.getAccountTransactionHistory(criteria));
+                .body(SHAccountReaderPort.getAccountTransactionHistory(criteria));
     }
 }
