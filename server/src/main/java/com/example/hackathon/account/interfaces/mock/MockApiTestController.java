@@ -1,12 +1,9 @@
 package com.example.hackathon.account.interfaces.mock;
 
-import com.example.hackathon.account.domain.AccountHistoryCriteria;
-import com.example.hackathon.account.domain.SHAccountReaderPort;
-import com.example.hackathon.account.domain.AccountSummaryCriteria;
-import com.example.hackathon.account.domain.SHAccountValidationPort;
-import com.example.hackathon.account.domain.AccountValidationCommand;
+import com.example.hackathon.account.domain.*;
 import com.example.hackathon.account.domain.shResponse.SHAccountCreateValidationREC;
 import com.example.hackathon.account.domain.shResponse.SHAccountREC;
+import com.example.hackathon.account.domain.shResponse.SHAccountValidationREC;
 import com.example.hackathon.account.domain.shResponse.SHTransactionHistoryREC;
 import com.example.hackathon.common.shDto.SHApiRECListResponse;
 import com.example.hackathon.common.shDto.SHApiRECSingleResponse;
@@ -40,5 +37,12 @@ public class MockApiTestController {
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .body(SHAccountValidationPort.createValidation(command));
+    }
+
+    @PostMapping("/validate")
+    public ResponseEntity<SHApiRECSingleResponse<SHAccountValidationREC>> testValidation(@RequestBody AccountValidationCriteria criteria) {
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(SHAccountValidationPort.validateValidation(criteria));
     }
 }
