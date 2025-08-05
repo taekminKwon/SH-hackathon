@@ -1,0 +1,19 @@
+{
+  "Header": {
+    "responseCode": "H0000",
+    "responseMessage": "정상처리 되었습니다.",
+    "apiName": "checkAuthCode",
+    "transmissionDate": "20240723",
+    "transmissionTime": "152415",
+    "fintechAppNo" : "12345",
+    "institutionCode": "00100",
+    "apiKey": "e8fb2ac291804bc98834ff7bcef7e340",
+    "apiServiceCode": "checkAuthCode",
+    "institutionTransactionUniqueNo": "20240723152415461262"
+  },
+  "REC": {
+    "status": "SUCCESS",
+    "transactionUniqueNo": "7",
+    "accountNo": "0011214764051239"
+  }
+}
