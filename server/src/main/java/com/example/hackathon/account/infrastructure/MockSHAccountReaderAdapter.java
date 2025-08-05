@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @RequiredArgsConstructor
-public class MockSHSHAccountReaderAdapter implements SHAccountReaderPort {
+public class MockSHAccountReaderAdapter implements SHAccountReaderPort {
     private final MockApiLoader mockApiLoader;
     @Override
     public SHApiRECResponse<SHAccountREC> getAccountSummary(AccountSummaryCriteria criteria) {
