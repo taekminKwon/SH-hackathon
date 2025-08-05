@@ -7,5 +7,5 @@ import lombok.NoArgsConstructor;
 @Getter
 public class SHAccountCreateValidationREC {
     private String transactionUniqueNo;
-    private String authText;
+    private String accountNo;
 }

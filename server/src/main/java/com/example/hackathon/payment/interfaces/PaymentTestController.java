@@ -1,6 +1,6 @@
 package com.example.hackathon.payment.interfaces;
 
-import com.example.hackathon.common.shDto.SHApiRECResponse;
+import com.example.hackathon.common.shDto.SHApiRECListResponse;
 import com.example.hackathon.payment.domain.SHPaymentPort;
 import com.example.hackathon.payment.domain.shDto.SHPaymentCommand;
 import com.example.hackathon.payment.domain.shDto.SHPaymentInfo;
@@ -19,7 +19,7 @@ public class PaymentTestController {
     private final SHPaymentPort port;
 
     @PostMapping
-    public ResponseEntity<SHApiRECResponse<SHPaymentInfo>> createPayment(@RequestBody SHPaymentCommand command) {
+    public ResponseEntity<SHApiRECListResponse<SHPaymentInfo>> createPayment(@RequestBody SHPaymentCommand command) {
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .body(port.storePayment(command));

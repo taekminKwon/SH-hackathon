@@ -1,4 +1,4 @@
-package com.example.hackathon.account.domain.shResponse;
+package com.example.hackathon.account.domain;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

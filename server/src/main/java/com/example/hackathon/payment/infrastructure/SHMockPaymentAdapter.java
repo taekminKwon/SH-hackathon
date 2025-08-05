@@ -1,6 +1,6 @@
 package com.example.hackathon.payment.infrastructure;
 
-import com.example.hackathon.common.shDto.SHApiRECResponse;
+import com.example.hackathon.common.shDto.SHApiRECListResponse;
 import com.example.hackathon.common.shDto.SHHeader;
 import com.example.hackathon.payment.domain.SHPaymentPort;
 import com.example.hackathon.payment.domain.shDto.SHPaymentCommand;
@@ -21,7 +21,7 @@ public class SHMockPaymentAdapter implements SHPaymentPort {
     private static final Map<Long, SHPaymentInfo> db = new ConcurrentHashMap<>();
     private static long id = 1;
     @Override
-    public SHApiRECResponse<SHPaymentInfo> storePayment(SHPaymentCommand command) {
+    public SHApiRECListResponse<SHPaymentInfo> storePayment(SHPaymentCommand command) {
         List<SHPaymentInfo> list = new ArrayList<>();
         SHPaymentInfo withdrawal = createWithdrawal(command);
         db.put(++id, withdrawal);
@@ -29,7 +29,7 @@ public class SHMockPaymentAdapter implements SHPaymentPort {
         db.put(++id, deposit);
         list.add(withdrawal);
         list.add(deposit);
-        return SHApiRECResponse.of(SHHeader.Response
+        return SHApiRECListResponse.of(SHHeader.Response
                 .builder()
                 .responseCode("H0000")
                 .responseMessage("정상처리 되었습니다")
