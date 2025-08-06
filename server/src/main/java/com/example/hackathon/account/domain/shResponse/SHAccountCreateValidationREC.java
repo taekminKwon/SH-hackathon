@@ -6,6 +6,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Getter
 public class SHAccountCreateValidationREC {
-    private String transactionUniqueNo;
+    private Long transactionUniqueNo;
     private String accountNo;
 }

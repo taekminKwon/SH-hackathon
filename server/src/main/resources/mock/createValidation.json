@@ -11,8 +11,8 @@
     "apiServiceCode": "openAccountAuth",
     "institutionTransactionUniqueNo": "20240723152345666098"
   },
-  "REC": {
-    "transactionUniqueNo": "7",
+  "REC": [{
+    "transactionUniqueNo": 7,
     "accountNo": "0011214764051239"
-  }
+  }]
 }

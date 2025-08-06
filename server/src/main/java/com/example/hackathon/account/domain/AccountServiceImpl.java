@@ -1,5 +1,6 @@
 package com.example.hackathon.account.domain;
 
+import com.example.hackathon.account.domain.shResponse.SHAccountCreateValidationREC;
 import com.example.hackathon.account.domain.shResponse.SHAccountREC;
 import com.example.hackathon.common.shDto.SHApiRECListResponse;
 import jakarta.transaction.Transactional;
@@ -11,5 +12,10 @@ public class AccountServiceImpl implements AccountService {
     @Transactional
     public AccountSummaryInfo getAccountSummaryInfo(SHApiRECListResponse<SHAccountREC> externalResponse) {
         return AccountSummaryInfo.of(externalResponse.getResponseBody().get(0));
+    }
+
+    @Override
+    public ValidationInfo createValidationDeposit(SHApiRECListResponse<SHAccountCreateValidationREC> externalResponse) {
+        return ValidationInfo.of(externalResponse.getResponseBody().get(0));
     }
 }

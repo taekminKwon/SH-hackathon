@@ -6,7 +6,6 @@ import com.example.hackathon.account.domain.shResponse.SHAccountREC;
 import com.example.hackathon.account.domain.shResponse.SHAccountValidationREC;
 import com.example.hackathon.account.domain.shResponse.SHTransactionHistoryREC;
 import com.example.hackathon.common.shDto.SHApiRECListResponse;
-import com.example.hackathon.common.shDto.SHApiRECSingleResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -33,14 +32,14 @@ public class MockApiTestController {
     }
 
     @PostMapping("/createValidation")
-    public ResponseEntity<SHApiRECSingleResponse<SHAccountCreateValidationREC>> testCreateValidation(@RequestBody AccountValidationCommand command){
+    public ResponseEntity<SHApiRECListResponse<SHAccountCreateValidationREC>> testCreateValidation(@RequestBody AccountValidationCommand command){
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .body(SHAccountValidationPort.createValidation(command));
     }
 
     @PostMapping("/validate")
-    public ResponseEntity<SHApiRECSingleResponse<SHAccountValidationREC>> testValidation(@RequestBody AccountValidationCriteria criteria) {
+    public ResponseEntity<SHApiRECListResponse<SHAccountValidationREC>> testValidation(@RequestBody AccountValidationCriteria criteria) {
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .body(SHAccountValidationPort.validateValidation(criteria));

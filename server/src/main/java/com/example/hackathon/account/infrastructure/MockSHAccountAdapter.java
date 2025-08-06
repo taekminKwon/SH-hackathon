@@ -8,7 +8,6 @@ import com.example.hackathon.account.domain.shResponse.SHAccountValidationREC;
 import com.example.hackathon.account.domain.shResponse.SHTransactionHistoryREC;
 import com.example.hackathon.common.shDto.SHApiRECListResponse;
 import com.example.hackathon.common.mock.MockApiLoader;
-import com.example.hackathon.common.shDto.SHApiRECSingleResponse;
 import com.fasterxml.jackson.core.type.TypeReference;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -28,12 +27,12 @@ public class MockSHAccountAdapter implements SHAccountReaderPort, SHAccountValid
     }
 
     @Override
-    public SHApiRECSingleResponse<SHAccountCreateValidationREC> createValidation(AccountValidationCommand command) {
-        return mockApiLoader.loadMockResponse("createValidation", new TypeReference<SHApiRECSingleResponse<SHAccountCreateValidationREC>>() {});
+    public SHApiRECListResponse<SHAccountCreateValidationREC> createValidation(AccountValidationCommand command) {
+        return mockApiLoader.loadMockResponse("createValidation", new TypeReference<SHApiRECListResponse<SHAccountCreateValidationREC>>() {});
     }
 
     @Override
-    public SHApiRECSingleResponse<SHAccountValidationREC> validateValidation(AccountValidationCriteria criteria) {
-        return mockApiLoader.loadMockResponse("validateValidation", new TypeReference<SHApiRECSingleResponse<SHAccountValidationREC>>() {});
+    public SHApiRECListResponse<SHAccountValidationREC> validateValidation(AccountValidationCriteria criteria) {
+        return mockApiLoader.loadMockResponse("validateValidation", new TypeReference<SHApiRECListResponse<SHAccountValidationREC>>() {});
     }
 }

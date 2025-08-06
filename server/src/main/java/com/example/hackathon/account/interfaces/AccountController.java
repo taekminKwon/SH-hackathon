@@ -3,6 +3,8 @@ package com.example.hackathon.account.interfaces;
 import com.example.hackathon.account.application.AccountFacade;
 import com.example.hackathon.account.domain.AccountSummaryCriteria;
 import com.example.hackathon.account.domain.AccountSummaryInfo;
+import com.example.hackathon.account.domain.AccountValidationCommand;
+import com.example.hackathon.account.domain.ValidationInfo;
 import com.example.hackathon.common.APIResponse;
 import com.example.hackathon.common.SuccessCode;
 import jakarta.validation.Valid;
@@ -20,6 +22,13 @@ public class AccountController {
     public ResponseEntity<APIResponse<AccountSummaryInfo>> getAccountSummary(@RequestBody @Valid AccountSummaryCriteria criteria) {
         return ResponseEntity
                 .status(HttpStatus.OK)
-                .body(APIResponse.success(SuccessCode.OK ,accountFacade.getAccountSummaryInfo(criteria)));
+                .body(APIResponse.success(SuccessCode.OK, accountFacade.getAccountSummaryInfo(criteria)));
+    }
+
+    @PostMapping("/createOneWonValidation")
+    public ResponseEntity<APIResponse<ValidationInfo>> createAccountValidation(@RequestBody @Valid AccountValidationCommand command) {
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(APIResponse.success(SuccessCode.OK, accountFacade.createOneValidation(command)));
     }
 }
