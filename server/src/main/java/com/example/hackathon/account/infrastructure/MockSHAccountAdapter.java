@@ -1,10 +1,7 @@
 package com.example.hackathon.account.infrastructure;
 
 import com.example.hackathon.account.domain.*;
-import com.example.hackathon.account.domain.AccountValidationCommand;
-import com.example.hackathon.account.domain.shResponse.SHAccountCreateValidationREC;
 import com.example.hackathon.account.domain.shResponse.SHAccountREC;
-import com.example.hackathon.account.domain.shResponse.SHAccountValidationREC;
 import com.example.hackathon.account.domain.shResponse.SHTransactionHistoryREC;
 import com.example.hackathon.common.shDto.SHApiRECListResponse;
 import com.example.hackathon.common.mock.MockApiLoader;
@@ -14,7 +11,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @RequiredArgsConstructor
-public class MockSHAccountAdapter implements SHAccountReaderPort, SHAccountValidationPort {
+public class MockSHAccountAdapter implements SHAccountReaderPort {
     private final MockApiLoader mockApiLoader;
     @Override
     public SHApiRECListResponse<SHAccountREC> getAccountSummary(AccountSummaryCriteria criteria) {
@@ -24,15 +21,5 @@ public class MockSHAccountAdapter implements SHAccountReaderPort, SHAccountValid
     @Override
     public SHApiRECListResponse<SHTransactionHistoryREC> getAccountTransactionHistory(AccountHistoryCriteria criteria) {
         return mockApiLoader.loadMockResponse("getTransactionHistory", new TypeReference<SHApiRECListResponse<SHTransactionHistoryREC>>() {});
-    }
-
-    @Override
-    public SHApiRECListResponse<SHAccountCreateValidationREC> createValidation(AccountValidationCommand command) {
-        return mockApiLoader.loadMockResponse("createValidation", new TypeReference<SHApiRECListResponse<SHAccountCreateValidationREC>>() {});
-    }
-
-    @Override
-    public SHApiRECListResponse<SHAccountValidationREC> validateValidation(AccountValidationCriteria criteria) {
-        return mockApiLoader.loadMockResponse("validateValidation", new TypeReference<SHApiRECListResponse<SHAccountValidationREC>>() {});
     }
 }
