@@ -1,0 +1,30 @@
+{
+  "Header": {
+    "responseCode": "H0000",
+    "responseMessage": "정상처리 되었습니다.",
+    "apiName": "updateDemandDepositAccountTransfer",
+    "transmissionDate": "20240401",
+    "transmissionTime": "103500",
+    "institutionCode": "00100",
+    "fintechAppNo": "001",
+    "apiKey": "6a028e66ddbf42a6b783d78963163e29",
+    "apiServiceCode": "updateDemandDepositAccountTransfer",
+    "institutionTransactionUniqueNo": "202402151212123453"
+  },
+  "REC": [
+    {
+      "bankCode": "088",
+      "accountNo": "1234567890123456",
+      "currency": [
+        {
+          "currency": "KRW",
+          "currencyName": "대한민국 원"
+        },
+        {
+          "currency": "USD",
+          "currencyName": "미국 달러"
+        }
+      ]
+    }
+  ]
+}

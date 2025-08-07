@@ -21,4 +21,11 @@ public class AccountController {
                 .status(HttpStatus.OK)
                 .body(APIResponse.success(SuccessCode.OK, accountFacade.getAccountSummaryInfo(criteria)));
     }
+
+    @PostMapping("/createDemandDepositAccount")
+    public ResponseEntity<APIResponse<AccountCreationInfo>> createAccount(@RequestBody @Valid AccountCreationCommand command) {
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(APIResponse.success(SuccessCode.OK, accountFacade.saveCreatedAccount(command)));
+    }
 }
