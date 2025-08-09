@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   db:
     image: postgres:15
@@ -10,7 +8,7 @@ services:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     ports:
-      - "${PSQL_PORT}:${PSQL_PORT}"
+      - "${PSQL_PORT}:5432"
     volumes:
       - ./db:/var/lib/postgresql/data
 
@@ -26,16 +24,17 @@ services:
       SPRING_DATASOURCE_URL: ${SPRING_DATASOURCE_URL}
       SPRING_DATASOURCE_USERNAME: ${SPRING_DATASOURCE_USERNAME}
       SPRING_DATASOURCE_PASSWORD: ${SPRING_DATASOURCE_PASSWORD}
-      SPRING_BOOT_PORT: 8080
+      # SERVER_PORT: 8080
     env_file:
       - ./.env
 
   django:
+    profiles: ["django"]             # 기본은 제외, 필요 시 프로필로 포함
     build: ./django-app
     container_name: django-app
     restart: unless-stopped
     expose:
-      - "${DJANGO_PORT}"
+      - "8000"
     depends_on:
       - db
     environment:
@@ -44,12 +43,12 @@ services:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       POSTGRES_HOST: db
-      DJANGO_PORT: ${DJANGO_PORT}
+      DJANGO_PORT: 8000
     volumes:
       - ./django-app:/app
     command: >
       sh -c "python manage.py migrate &&
-             python manage.py runserver 0.0.0.0:${DJANGO_PORT}"
+             python manage.py runserver 0.0.0.0:8000"
     env_file:
       - .env
 
@@ -58,12 +57,11 @@ services:
     container_name: nginx-proxy
     restart: unless-stopped
     ports:
-      - "${NGINX_PORT}:${NGINX_PORT}"
+      - "${NGINX_PORT}:80"           # 컨테이너 포트는 80
     volumes:
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
-      - ./flutter-web-build:/usr/share/nginx/html  # Flutter 웹 화면 서빙
+      - ./flutter-web-build:/usr/share/nginx/html
     depends_on:
       - app
-      - django
     env_file:
       - .env
