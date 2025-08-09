@@ -3,8 +3,7 @@ package com.example.hackathon.account.infrastructure;
 import com.example.hackathon.account.domain.*;
 import com.example.hackathon.account.domain.shResponse.SHAccountCreationREC;
 import com.example.hackathon.account.domain.shResponse.SHAccountREC;
-import com.example.hackathon.account.domain.shResponse.SHTransactionHistoryREC;
-import com.example.hackathon.account.interfaces.AccountCreationCommand;
+import com.example.hackathon.account.domain.AccountCreationCommand;
 import com.example.hackathon.common.shDto.SHApiRECListResponse;
 import com.example.hackathon.common.mock.MockApiLoader;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -21,12 +20,6 @@ public class MockSHAccountAdapter implements SHAccountReaderPort, SHAccountStore
     public SHAccountREC getAccountSummary(AccountSummaryCriteria criteria) {
         SHApiRECListResponse<SHAccountREC> getAccountSummary = mockApiLoader.loadMockResponse("getAccountSummary", new TypeReference<SHApiRECListResponse<SHAccountREC>>() {});
         return getAccountSummary.getResponseBody().get(0);
-    }
-
-    @Override
-    public SHTransactionHistoryREC getAccountTransactionHistory(AccountHistoryCriteria criteria) {
-        SHApiRECListResponse<SHTransactionHistoryREC> getTransactionHistory = mockApiLoader.loadMockResponse("getTransactionHistory", new TypeReference<SHApiRECListResponse<SHTransactionHistoryREC>>() {});
-        return getTransactionHistory.getResponseBody().get(0);
     }
 
     @Override

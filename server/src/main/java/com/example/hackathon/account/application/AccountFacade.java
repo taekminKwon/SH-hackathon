@@ -3,8 +3,8 @@ package com.example.hackathon.account.application;
 import com.example.hackathon.account.domain.*;
 import com.example.hackathon.account.domain.shResponse.SHAccountCreationREC;
 import com.example.hackathon.account.domain.shResponse.SHAccountREC;
-import com.example.hackathon.account.interfaces.AccountCreationCommand;
-import com.example.hackathon.account.interfaces.AccountCreationInfo;
+import com.example.hackathon.account.domain.AccountCreationCommand;
+import com.example.hackathon.account.domain.AccountCreationInfo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

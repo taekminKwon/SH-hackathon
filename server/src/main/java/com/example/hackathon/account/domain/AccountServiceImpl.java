@@ -1,7 +1,6 @@
 package com.example.hackathon.account.domain;
 
 import com.example.hackathon.account.domain.shResponse.SHAccountREC;
-import com.example.hackathon.account.interfaces.AccountCreationInfo;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
