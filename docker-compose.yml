@@ -29,7 +29,6 @@ services:
       - ./.env
 
   django:
-    profiles: ["django"]             # 기본은 제외, 필요 시 프로필로 포함
     build: ./django-app
     container_name: django-app
     restart: unless-stopped
