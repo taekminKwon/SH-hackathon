@@ -6,6 +6,8 @@ import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class AccountServiceImpl implements AccountService {
@@ -21,5 +23,12 @@ public class AccountServiceImpl implements AccountService {
     public AccountCreationInfo saveAccount(Account account) {
         Account saveAccount = accountStore.saveAccount(account);
         return AccountCreationInfo.of(saveAccount);
+    }
+
+    @Override
+    public List<AccountSummaryInfo> getAccountSummariesInfo(List<SHAccountREC> externalResponse) {
+        return externalResponse.stream()
+                .map(AccountSummaryInfo::of)
+                .toList();
     }
 }

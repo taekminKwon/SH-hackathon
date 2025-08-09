@@ -11,6 +11,8 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 @RequiredArgsConstructor
 public class MockSHAccountAdapter implements SHAccountReaderPort, SHAccountStorePort {
@@ -23,9 +25,14 @@ public class MockSHAccountAdapter implements SHAccountReaderPort, SHAccountStore
 
     @Override
     public SHTransactionHistoryREC getAccountTransactionHistory(AccountHistoryCriteria criteria) {
-        SHApiRECListResponse<SHTransactionHistoryREC> getTransactionHistory = mockApiLoader.loadMockResponse("getTransactionHistory", new TypeReference<SHApiRECListResponse<SHTransactionHistoryREC>>() {
-        });
+        SHApiRECListResponse<SHTransactionHistoryREC> getTransactionHistory = mockApiLoader.loadMockResponse("getTransactionHistory", new TypeReference<SHApiRECListResponse<SHTransactionHistoryREC>>() {});
         return getTransactionHistory.getResponseBody().get(0);
+    }
+
+    @Override
+    public List<SHAccountREC> getAccountSummaries(String userKey) {
+        SHApiRECListResponse<SHAccountREC> getAccountSummaries = mockApiLoader.loadMockResponse("getAccountSummaries", new TypeReference<SHApiRECListResponse<SHAccountREC>>() {});
+        return getAccountSummaries.getResponseBody();
     }
 
     @Override

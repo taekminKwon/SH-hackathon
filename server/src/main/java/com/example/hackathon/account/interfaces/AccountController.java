@@ -10,6 +10,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/accounts")
 @RequiredArgsConstructor
@@ -27,5 +29,12 @@ public class AccountController {
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .body(APIResponse.success(SuccessCode.OK, accountFacade.saveCreatedAccount(command)));
+    }
+
+    @GetMapping
+    public ResponseEntity<APIResponse<List<AccountSummaryInfo>>> getAccountSummaries() {
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(APIResponse.success(SuccessCode.OK, accountFacade.getAccountSummariesInfo()));
     }
 }

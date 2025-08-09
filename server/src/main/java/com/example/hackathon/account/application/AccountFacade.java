@@ -8,6 +8,8 @@ import com.example.hackathon.account.interfaces.AccountCreationInfo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 @RequiredArgsConstructor
 public class AccountFacade {
@@ -21,6 +23,15 @@ public class AccountFacade {
 
     public AccountCreationInfo saveCreatedAccount(AccountCreationCommand command) {
         SHAccountCreationREC accountSummary = shAccountStorePort.createAccountSummary(command);
-        return accountService.saveAccount(Account.of(accountSummary, "user"));
+        //TODO 시큐리티 구현 시 수정
+        String userKey = "user";
+        return accountService.saveAccount(Account.of(accountSummary, userKey));
+    }
+
+    public List<AccountSummaryInfo> getAccountSummariesInfo() {
+        //TODO 시큐리티 구현 시 수정
+        String userKey = "user";
+        List<SHAccountREC> externalResponse = shAccountReaderPort.getAccountSummaries(userKey);
+        return accountService.getAccountSummariesInfo(externalResponse);
     }
 }
