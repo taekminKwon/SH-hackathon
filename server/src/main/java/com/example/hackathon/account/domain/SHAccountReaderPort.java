@@ -12,11 +12,6 @@ public interface SHAccountReaderPort {
     SHAccountREC getAccountSummary(AccountSummaryCriteria criteria);
 
     /**
-     * 계좌 거래 내역 목록을 조회합니다
-     */
-    SHTransactionHistoryREC getAccountTransactionHistory(AccountHistoryCriteria criteria);
-
-    /**
      * 계좌 목록을 조회합니다.
      */
     List<SHAccountREC> getAccountSummaries(String userKey);
