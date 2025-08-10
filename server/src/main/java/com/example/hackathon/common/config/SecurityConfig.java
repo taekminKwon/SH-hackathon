@@ -35,9 +35,9 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
 
-                // 회원가입, 로그인에 필요한 '/api/auth' 로 시작하는 요청은 인증없이 허용, 아니면 인증 거쳐야
+                // 회원가입, 로그인에 필요한 "/users/signUp", "/users/login" 로 시작하는 요청은 인증없이 허용, 아니면 인증 거쳐야
                 .authorizeHttpRequests(authz -> authz
-                        .requestMatchers("/api/auth/**").permitAll()
+                        .requestMatchers("/users/signUp", "/users/login").permitAll()
                         .anyRequest().authenticated())
 
                 // JwtAuthenticationFilter를 UsernamePasswordAuthenticationFilter 전에 추가

@@ -1,5 +1,6 @@
 package com.example.hackathon.user.domain;
 
+import com.example.hackathon.common.BaseTimeEntity;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -16,7 +17,7 @@ import java.util.List;
 @Table(name="users")
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class User implements UserDetails {
+public class User extends BaseTimeEntity implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
