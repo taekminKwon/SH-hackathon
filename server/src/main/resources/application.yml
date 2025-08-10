@@ -29,4 +29,4 @@ logging:
     org.hibernate.tool.schema: debug
 
 jwt:
-  secret: 2097744f1cf41787b4d38f13bc25d514b880b454a3b59f52ae829f20ac1020295dfd3edc8b0ccd53abf3beb7af902cd27edbeabf2b322d0039d54935acacabd7
+  secret: ${JWT_SECRET_KEY}
