@@ -31,7 +31,7 @@ public class SecurityConfig {
 
                 // 회원가입, 로그인에 필요한 '/api/auth' 로 시작하는 요청은 인증없이 허용, 아니면 인증 거쳐야
                 .authorizeHttpRequests(authz -> authz
-                        .requestMatchers("api/auth/**").permitAll()
+                        .requestMatchers("/api/auth/**").permitAll()
                         .anyRequest().authenticated())
                 // 추후 JWT 인증필터 추가해야
                 .build();
