@@ -1,8 +1,11 @@
 package com.example.hackathon.user.interfaces;
 
+import com.example.hackathon.common.jwt.JwtTokenProvider;
 import com.example.hackathon.user.application.AuthService;
+import com.example.hackathon.user.domain.User;
 import com.example.hackathon.user.interfaces.dto.LoginRequest;
 import com.example.hackathon.user.interfaces.dto.SignupRequest;
+import com.example.hackathon.user.interfaces.dto.TokenResponse;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class AuthController {
     private final AuthService authService;
+    private final JwtTokenProvider jwtTokenProvider;
 
     // 회원가입 API
     @PostMapping("/signup")
@@ -28,9 +32,12 @@ public class AuthController {
 
     // 로그인 API
     @PostMapping("/login")
-    public ResponseEntity<String> login(@Valid @RequestBody LoginRequest request){
-        authService.login(request);
+    public ResponseEntity<TokenResponse> login(@Valid @RequestBody LoginRequest request){
+        // 유저 정보 받아
+        User user = authService.login(request);
+        // 토큰 생성
+        String token = jwtTokenProvider.generateToken(user.getUsername());
 
-        return ResponseEntity.ok("로그인 성공!");
+        return ResponseEntity.ok(new TokenResponse(token));
     }
 }
