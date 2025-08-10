@@ -1,5 +1,6 @@
 package com.example.hackathon.account.domain;
 
+import com.example.hackathon.account.domain.shResponse.SHAccountCreationREC;
 import com.example.hackathon.account.domain.shResponse.SHAccountREC;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
@@ -11,6 +12,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class AccountServiceImpl implements AccountService {
     private final AccountStore accountStore;
+    private final AccountReader accountReader;
 
     @Override
     @Transactional
@@ -19,8 +21,8 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    public AccountCreationInfo saveAccount(Account account) {
-        Account saveAccount = accountStore.saveAccount(account);
+    public AccountCreationInfo saveAccount(SHAccountCreationREC externalResponse, String userKey) {
+        Account saveAccount = accountStore.saveAccount(Account.createAccount(externalResponse, userKey));
         return AccountCreationInfo.of(saveAccount);
     }
 
@@ -29,5 +31,10 @@ public class AccountServiceImpl implements AccountService {
         return externalResponse.stream()
                 .map(AccountSummaryInfo::of)
                 .toList();
+    }
+
+    @Override
+    public Account deleteAccount(Long accountId) {
+        return accountStore.saveAccount(accountReader.findById(accountId).deleteAccount());
     }
 }

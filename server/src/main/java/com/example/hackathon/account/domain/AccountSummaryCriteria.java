@@ -9,4 +9,10 @@ import lombok.NoArgsConstructor;
 public class AccountSummaryCriteria {
     @NotBlank(message = "계좌 번호는 필수 입력 값입니다.")
     private String accountNo;
+
+    public static AccountSummaryCriteria of(Account account) {
+        AccountSummaryCriteria criteria = new AccountSummaryCriteria();
+        criteria.accountNo = account.getAccountNo();
+        return criteria;
+    }
 }

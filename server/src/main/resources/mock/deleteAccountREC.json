@@ -1,0 +1,22 @@
+{
+  "Header": {
+    "responseCode": "H0000",
+    "responseMessage": "정상처리 되었습니다.",
+    "apiName": "terminateAccount",
+    "transmissionDate": "20240401",
+    "transmissionTime": "103500",
+    "institutionCode": "00100",
+    "fintechAppNo": "001",
+    "apiKey": "6a028e66ddbf42a6b783d78963163e29",
+    "apiServiceCode": "terminateAccount",
+    "institutionTransactionUniqueNo": "202402151212123453"
+  },
+  "REC": [
+    {
+      "status": "해지완료",
+      "accountNo": "1234567890123456",
+      "refundAccountNo": "6543210987654321",
+      "accountBalance": 500000
+    }
+  ]
+}

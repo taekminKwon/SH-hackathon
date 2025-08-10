@@ -37,4 +37,11 @@ public class AccountController {
                 .status(HttpStatus.OK)
                 .body(APIResponse.success(SuccessCode.OK, accountFacade.getAccountSummariesInfo()));
     }
+
+    @DeleteMapping
+    public ResponseEntity<APIResponse<DeletedAccountInfo>> deleteAccount(@RequestBody @Valid AccountDeleteCommand command) {
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(APIResponse.success(SuccessCode.OK, accountFacade.deleteAccount(command)));
+    }
 }
