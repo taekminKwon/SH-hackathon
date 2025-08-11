@@ -1,5 +1,6 @@
 package com.example.hackathon.payment.domain;
 
+import com.example.hackathon.account.domain.Account;
 import com.example.hackathon.common.BaseTimeEntity;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
@@ -18,8 +19,14 @@ public class Payment extends BaseTimeEntity {
     //TODO user entity 생성 시 수정 예정
     private Long studentId;
 
+    @ManyToOne
+    private Account withdrawalAccount;
+
     //TODO 가맹점 entity 생성 시 수정 예정
     private Long storeId;
+
+    @ManyToOne
+    private Account depositAccount;
 
     private Long amountWon;
 
@@ -29,13 +36,17 @@ public class Payment extends BaseTimeEntity {
     public static Payment createPayment(
             Long studentId,
             Long storeId,
-            Long amountWon
+            Long amountWon,
+            Account withdrawalAccount,
+            Account depositAccount
     ) {
         Payment payment = new Payment();
         payment.paymentId = studentId;
         payment.storeId = storeId;
         payment.amountWon = amountWon;
         payment.paymentStatus = PaymentStatus.CREATED;
+        payment.withdrawalAccount = withdrawalAccount;
+        payment.depositAccount = depositAccount;
         return payment;
     }
 
