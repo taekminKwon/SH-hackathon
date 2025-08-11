@@ -27,3 +27,6 @@ logging:
     org.hibernate.SQL: debug
     org.hibernate.orm.jdbc.bind: trace
     org.hibernate.tool.schema: debug
+
+jwt:
+  secret: ${JWT_SECRET_KEY}
