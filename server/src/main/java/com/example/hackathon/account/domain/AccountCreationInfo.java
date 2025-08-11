@@ -1,6 +1,5 @@
-package com.example.hackathon.account.interfaces;
+package com.example.hackathon.account.domain;
 
-import com.example.hackathon.account.domain.Account;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 

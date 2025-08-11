@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
 @Entity
 @Table(name = "account")
@@ -22,11 +23,28 @@ public class Account extends BaseTimeEntity {
 
     private String accountNo;
 
-    public static Account of(SHAccountCreationREC accountSummary, String userId) {
+    @Enumerated(EnumType.STRING)
+    private Status status;
+
+    public static Account createAccount(SHAccountCreationREC accountSummary, String userId) {
         Account account = new Account();
         account.bankCode = accountSummary.getBankCode();
         account.accountNo = accountSummary.getAccountNo();
         account.userId = userId;
+        account.status = Status.CREATED;
         return account;
+    }
+
+    public Account deleteAccount() {
+        this.status = Status.DELETED;
+        return this;
+    }
+
+    @RequiredArgsConstructor
+    @Getter
+    public enum Status {
+        CREATED("생성"),
+        DELETED("삭제");
+        private final String status;
     }
 }
